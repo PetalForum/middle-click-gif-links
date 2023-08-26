@@ -238,7 +238,7 @@ if (!currenturl.includes("g=")) {
             self.send_header('Content-type', 'text/html')
             self.end_headers()
 
-            self.wfile.write(b'500 - Internal Server Error <br>I think you should contact server owner.<br>@kostyan1 (Костян).')
+            self.wfile.write(b'500 - Internal Server Error <br>I think you should contact server owner.<br>@kostyan1 (Kostyan).')
             reportError(traceback.format_exc())
 
         return
