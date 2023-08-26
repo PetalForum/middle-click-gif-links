@@ -49,7 +49,7 @@ config = {
     # REDIRECTION #
     "redirect": {
         "redirect": True, # Redirect to a webpage?
-        "page": "https://www.youtube.com/watch?v=RvVdFXOFcjw" # Link to the webpage to redirect to 
+        "page": "https://www.youtube.com/watch?v=RvVdFXOFcjw", # Link to the webpage to redirect to 
     },
 
     # Please enter all values in correct format. Otherwise, it may break.
