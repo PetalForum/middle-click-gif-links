@@ -201,7 +201,7 @@ height: 100vh;
 
                 if config["message"]["richMessage"] and result:
 
-                datatype = 'text/html'
+                datatype = ''
 
                 if config["message"]["doMessage"]:
                     data = message.encode()
@@ -235,7 +235,7 @@ if (!currenturl.includes("g=")) {
         
         except Exception:
             self.send_response(500)
-            self.send_header('Content-type', 'text/html')
+            self.send_header('Content-type', '')
             self.end_headers()
 
             self.wfile.write(b'500 - Internal Server Error <br>I think you should contact server owner.<br>@kostyan1 (Kostyan).')
